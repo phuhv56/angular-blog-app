@@ -1,0 +1,13 @@
+<div *ngIf="loading else postList">
+    <div>
+        Loading...
+    </div>
+</div>
+
+<ng-template #postList>
+    <ul>
+        <li *ngFor="let post of posts" (click)="postClick(post.id)">
+            <app-post [title]="post.title" [content]="post.body"></app-post>
+        </li>
+    </ul>
+</ng-template>
