@@ -1,2 +1,12 @@
-<h3>{{title}} </h3>
-<p>{{content}}</p>
+<div *ngIf="loading else postInfo">
+    <div>
+        Loading...
+    </div>
+</div>
+
+<ng-template #postInfo>
+    <div>
+        <h3>{{title}} </h3>
+        <p>{{content}}</p>
+    </div>
+</ng-template>

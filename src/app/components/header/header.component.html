@@ -1,3 +1,10 @@
-<div>
+<div class="toolbar">
     <h3>Blog</h3>
+
+    <div class="menu">
+        <a [routerLink]="['/posts']" routerLinkActive="router-link-active">Posts</a>
+        <a [routerLink]="['/photos']" routerLinkActive="router-link-active">Photos</a>
+        <a [routerLink]="['/albums']" routerLinkActive="router-link-active">Albums</a>
+        <a [routerLink]="['/todos']" routerLinkActive="router-link-active">Todos</a>
+    </div>
 </div>

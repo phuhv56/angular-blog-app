@@ -7,7 +7,9 @@
 <ng-template #postList>
     <ul>
         <li *ngFor="let post of posts" (click)="postClick(post.id)">
-            <app-post [title]="post.title" [content]="post.body"></app-post>
+            <div [routerLink]="['/post', post.id]">
+                <app-post [id]="post.id" [title]="post.title" [content]="post.body" [loading]="false"></app-post>
+            </div>
         </li>
     </ul>
 </ng-template>
