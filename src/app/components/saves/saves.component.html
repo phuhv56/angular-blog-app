@@ -1,0 +1,7 @@
+<ul>
+    <li *ngFor="let post of posts">
+        <div [routerLink]="['/post', post.id]">
+            <app-post [id]="post.id" [title]="post.title" [content]="post.body" [loading]="false"></app-post>
+        </div>
+    </li>
+</ul>

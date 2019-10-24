@@ -1,10 +1,10 @@
-<div class="toolbar">
-    <h3>Blog</h3>
-
-    <div class="menu">
-        <a [routerLink]="['/posts']" routerLinkActive="router-link-active">Posts</a>
-        <a [routerLink]="['/photos']" routerLinkActive="router-link-active">Photos</a>
-        <a [routerLink]="['/albums']" routerLinkActive="router-link-active">Albums</a>
-        <a [routerLink]="['/todos']" routerLinkActive="router-link-active">Todos</a>
-    </div>
-</div>
+<p-tabMenu [model]="items">
+  <ng-template pTemplate="item" let-item let-i="index">
+      <div style="position: relative; text-align: center; min-width: 10em">
+          <div class="ui-menuitem-icon" [ngClass]="item.icon" *ngIf="item.icon" style="font-size: 2em"></div>
+          <div class="ui-menuitem-text">
+              {{item.label}}
+          </div>
+      </div>
+  </ng-template>
+</p-tabMenu>

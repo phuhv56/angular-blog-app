@@ -2,6 +2,7 @@ import { PostService } from '../../services/post.service';
 import { Post } from '../../models/post.model';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-posts',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 export class PostsComponent implements OnInit {
   posts: Post[];
   loading = true;
+  subscription: Subscription;
 
   constructor(public postService: PostService, public router: Router) { }
 
@@ -19,7 +21,7 @@ export class PostsComponent implements OnInit {
   }
 
   loadPosts() {
-    this.postService.getPosts().subscribe(posts=> {
+    this.subscription = this.postService.getPosts().subscribe(posts=> {
       this.posts = posts;
       this.loading = false;
     });
@@ -27,6 +29,10 @@ export class PostsComponent implements OnInit {
 
   postClick(id: number) {
     this.router.navigate(['/post/' + id])
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }

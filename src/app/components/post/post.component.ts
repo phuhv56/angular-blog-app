@@ -29,4 +29,9 @@ export class PostComponent implements OnInit {
     })
   }
 
+  savePost(id) {
+    this.postService.getPost(id).subscribe(post => {
+      this.postService.savePost(post);
+    })
+  }
 }

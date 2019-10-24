@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
@@ -11,7 +11,12 @@ import { CommentComponent } from './components/comment/comment.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppRouterModule } from "./app.route";
+import { AppRouterModule } from './app.route';
+import { SavesComponent } from './components/saves/saves.component';
+
+import {TabMenuModule} from 'primeng/tabmenu';
+import {DataViewModule} from 'primeng/dataview';
+import {CardModule} from 'primeng/card';
 
 
 
@@ -22,13 +27,17 @@ import { AppRouterModule } from "./app.route";
     PostComponent,
     CommentsComponent,
     CommentComponent,
-    HeaderComponent
+    HeaderComponent,
+    SavesComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRouterModule,
-    HttpClientModule
+    HttpClientModule,
+    TabMenuModule,
+    DataViewModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

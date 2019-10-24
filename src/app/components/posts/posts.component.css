@@ -1,3 +1,9 @@
 li {
     list-style-type: none;
 }
+
+p-card {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom:  5px;
+}

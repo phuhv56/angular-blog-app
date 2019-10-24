@@ -1,15 +1,18 @@
-<div *ngIf="loading else postList">
-    <div>
-        Loading...
-    </div>
+<div *ngIf="loading">
+  <div>
+    Loading...
+  </div>
 </div>
 
-<ng-template #postList>
-    <ul>
-        <li *ngFor="let post of posts" (click)="postClick(post.id)">
-            <div [routerLink]="['/post', post.id]">
-                <app-post [id]="post.id" [title]="post.title" [content]="post.body" [loading]="false"></app-post>
-            </div>
-        </li>
-    </ul>
-</ng-template>
+<div *ngIf="!loading">
+  <p-dataView [value]="posts">
+    <ng-template let-post pTemplate="listItem">
+      <p-card>
+        <p-header>
+          {{ post.title }}
+        </p-header>
+        {{ post.body }}
+      </p-card>
+    </ng-template>
+  </p-dataView>
+</div>
